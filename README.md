@@ -1,2 +1,2 @@
-# Data-Structure-Stack
+# Data-Structure : Singly Link List
 DS - Stack 
