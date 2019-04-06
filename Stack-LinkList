@@ -1,12 +1,18 @@
- 
+ class Node {
+   constructor(value){
+     this.value = value;
+     this.next = null;
+   }
+ }
 
-class Stack  {
+class Stack extends Node{
   constructor(value) {
-   
-    this.top =  {
-      value:value,
-      next:null
-    }
+   super(value);
+    // this.top =  {
+    //   value:value,
+    //   next:null
+    // }
+     this.top =  new Node(value);
 
     this.bottom = this.top;
     this.length = 1;
@@ -17,10 +23,12 @@ class Stack  {
   }
 
   push(value) {
-    let newElement = {
-       value:value,
-      next:null
-    }
+    // let newElement = {
+    //    value:value,
+    //   next:null
+    // }
+
+let newElement = new Node(value);
 
     this.top.next = newElement;
     this.top = newElement;
