@@ -1,0 +1,54 @@
+class Queue {
+  constructor(value){
+    this.first ={
+      value:value,
+      next:null
+    }
+    this.last = this.first;
+    this.length = 1;
+  }
+
+  peek(){
+    return this.first;
+  }
+
+enqueue(value){
+  let newElement = {
+    value:value,
+    next:null
+  }
+  this.last.next = newElement;
+  this.last = newElement;
+  this.length++; 
+  return this;
+}
+
+dequeue(){
+if(this.length == 0){
+  return "No Data to Delete.";
+}
+  this.first = this.first.next;
+  this.length--;
+  return this;
+}
+
+printValues(){
+
+let array = [];
+let currentVal = this.first;
+while(currentVal !== null){
+  array.push(currentVal.value);
+  currentVal = currentVal.next;
+}
+return array;
+}
+
+}
+
+let myQue = new Queue(10);
+
+myQue.enqueue(20);
+myQue.enqueue(30);
+myQue.peek();
+myQue.dequeue();
+myQue.printValues();
