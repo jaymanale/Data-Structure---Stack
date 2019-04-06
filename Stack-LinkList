@@ -1,0 +1,55 @@
+ 
+
+class Stack  {
+  constructor(value) {
+   
+    this.top =  {
+      value:value,
+      next:null
+    }
+
+    this.bottom = this.top;
+    this.length = 1;
+  }
+
+  peek() {
+    return this.top;
+  }
+
+  push(value) {
+    let newElement = {
+       value:value,
+      next:null
+    }
+
+    this.top.next = newElement;
+    this.top = newElement;
+    this.length++;
+    return this;
+
+  }
+
+  pop() {
+    let leader = this.traverseElement(this.length - 1);
+    leader.next = null;
+    this.top = leader;
+    this.length--;
+    return this;
+  }
+  traverseElement(length) {
+    let counter = 1;
+    let currentval = this.bottom;
+    while (counter < length) {
+      currentval = currentval.next;
+      counter++;
+    }
+    return currentval;
+  }
+}
+
+let myStack = new Stack(10);
+myStack.push(20);
+myStack.push(30);
+myStack.push(50);
+myStack.pop();
+myStack.pop();
